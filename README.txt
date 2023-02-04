@@ -9,4 +9,4 @@ How to use:
 
 Note: 
     - same string on same day will give same results, on different day will give a different results
-    - same string concatenated with itself (don't include space for the time being) will lend different encryption for each additional concatenation.
+    - same string concatenated with itself (don't include space for the time being) will generally lend different encryption for each additional concatenation.
