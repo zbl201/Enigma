@@ -6,6 +6,7 @@
 #include <string>
 #include <limits>
 #include <map>
+#include <stdexcept>
 
 std::map<int,std::string> MakeEncryptionMap(const std::string& file_a);
 std::string Code(const std::string& str,const std::map<int,std::string>& map, int month, int day);

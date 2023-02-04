@@ -13,7 +13,7 @@ for char in f:
 encryption = symbols
 
 with open("C:/Users/Zach/CS_personal/EM24/Enigma/Encryptor/files/symbols_randomized.txt", 'w') as f:
-    for i in range(30):
+    for i in range(31):
         random.seed(i)
         random.shuffle(encryption)
         

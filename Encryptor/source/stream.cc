@@ -5,12 +5,16 @@ std::map<int,std::string> MakeEncryptionMap(const std::string& file_a) {
     std::map<int,std::string> to_return;
     
     std::ifstream ifs(file_a);
-    int count = 0;
+    int count = 1;
     while (std::getline(ifs, symbols_encrypted,'\n')) {
         to_return.insert(std::pair<int,std::string>(count,symbols_encrypted));
         count++;
     }
     ifs.close();
+
+    if (count != 32 ) {
+        throw std::invalid_argument("abort");
+    }
    
     return to_return;
 }
@@ -24,7 +28,7 @@ std::string Code(const std::string& str,const std::map<int,std::string>& map, in
         int index = std::stoi(digit);
         // std::cout << str.at(i) << '\t' << index << std::endl;
         to_return += map.at(day).at(index);
-        day = (day + month) % 30;
+        day = (day + month) % 31;
     }
 
     return to_return;
@@ -41,7 +45,7 @@ std::string Decode(const std::string& str,const std::map<int,std::string>& map, 
                 break;
             }
         }
-        day = (day + month) % 30;
+        day = (day + month) % 31;
     }
 
     return to_return;
