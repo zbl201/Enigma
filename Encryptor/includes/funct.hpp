@@ -1,5 +1,5 @@
-#ifndef STREAM_HPP
-#define STREAM_HPP
+#ifndef FUNCT_HPP
+#define FUNCT_HPP
 
 #include <iostream>
 #include <fstream>

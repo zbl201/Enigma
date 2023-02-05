@@ -1,18 +1,18 @@
-#include "stream.hpp"
+#include "funct.hpp"
 
 std::map<int,std::string> MakeEncryptionMap(const std::string& file_a) { 
     std::string symbols_encrypted;
     std::map<int,std::string> to_return;
     
     std::ifstream ifs(file_a);
-    int count = 1;
+    int count = 0;
     while (std::getline(ifs, symbols_encrypted,'\n')) {
         to_return.insert(std::pair<int,std::string>(count,symbols_encrypted));
         count++;
     }
     ifs.close();
 
-    if (count != 32 ) {
+    if (count != 31 ) {
         throw std::invalid_argument("abort");
     }
    
@@ -21,12 +21,13 @@ std::map<int,std::string> MakeEncryptionMap(const std::string& file_a) {
 
 std::string Code(const std::string& str,const std::map<int,std::string>& map, int month, int day) {
     std::string to_return = "";
+    day = day % 31; // 31st of month maps to 0 in map
 
     for (int i = 0; i < str.size(); ++i) {
         std::string digit;
         digit += str.at(i);
         int index = std::stoi(digit);
-        // std::cout << str.at(i) << '\t' << index << std::endl;
+        
         to_return += map.at(day).at(index);
         day = (day + month) % 31;
     }

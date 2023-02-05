@@ -3,7 +3,7 @@ Directory: Fruits
 Concept: Input In/Out-Streaming and File In/Out-Streaming
 */
 #include <iostream>
-#include "stream.hpp"
+#include "funct.hpp"
 
 int main() {
     
